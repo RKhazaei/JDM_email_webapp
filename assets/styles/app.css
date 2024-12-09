@@ -1,48 +1,96 @@
-/* General page container - Center the content */
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Full viewport height */
-    text-align: center;
-    padding: 20px;
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Style the alert messages */
-.alert {
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 400px;
+
+/* Full-page layout */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: url('/images/backgroundnocloud.png') no-repeat center center fixed;
+  background-size: cover; /* Ensures full-page coverage */
 }
 
-/* Style the form and its elements */
+
+
+/* Clouds animation */
+.clouds-container {
+  position: absolute;
+  top: -35%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: cloudsMove 5s ease-in-out infinite;
+}
+
+.clouds {
+  width: 1100px; /* Adjust size as needed */
+  opacity: 0.8; /* Slight transparency */
+}
+
+/* Cloud movement animation */
+@keyframes cloudsMove {
+  0% {
+    transform: translate(-50%, -20px);
+  }
+  50% {
+    transform: translate(-50%, 20px);
+  }
+  100% {
+    transform: translate(-50%, -20px);
+  }
+}
+
+/* Form styling */
+.form-container {
+  position: relative;
+  width: 800px;
+  z-index: 1;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.438);
+  top: -10%;
+  padding: 20px;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
 form {
-    margin-top: 20px;
-    max-width: 400px;
-    width: 100%;
+  margin-top: 10px;
 }
 
 input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }

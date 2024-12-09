@@ -3,7 +3,14 @@
 {% block title %}Subscribe{% endblock %}
 
 {% block body %}
-<div class="container">
+<!-- Clouds Animation -->
+<div class="clouds-container">
+    <img src="{{ asset('images/clouds.png') }}" alt="Clouds" class="clouds">
+
+</div>
+
+<!-- Subscription Form -->
+<div class="form-container">
     <h1>Join the JDM Community</h1>
     
     {# Display flash messages #}
@@ -22,3 +29,4 @@
     </form>
 </div>
 {% endblock %}
+
