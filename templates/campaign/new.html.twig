@@ -1,30 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Campaign{% endblock %}
+{% block title %}Create Campaign{% endblock %}
 
 {% block body %}
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Create New Email Campaign</h1>
-
-    <!-- Form Section -->
-    <div class="card">
-        <div class="card-body">
-            <form action="{{ path('campaign_new') }}" method="POST">
-                <div class="mb-3">
-                    <label for="subject" class="form-label">Subject</label>
-                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter the email subject" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="body" class="form-label">Email Body</label>
-                    <textarea class="form-control" id="body" name="body" rows="5" placeholder="Write the email body here" required></textarea>
-                </div>
-
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">Send Campaign</button>
-                </div>
-            </form>
+    <h1>Create Email Campaign</h1>
+    <form method="post" action="{{ path('campaign_new') }}">
+        <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control" id="subject" name="subject" required>
         </div>
-    </div>
+        <div class="mb-3">
+            <label for="body" class="form-label">Body</label>
+            <textarea class="form-control" id="body" name="body" rows="5" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="recipients" class="form-label">Recipients</label>
+            <input type="text" name="recipients" class="form-control" id="recipients">
+        </div>
+        <button type="submit" class="btn btn-primary">Send Email</button>
+    </form>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success mt-3">{{ message }}</div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger mt-3">{{ message }}</div>
+    {% endfor %}
 </div>
 {% endblock %}
